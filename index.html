@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Power BI Dashboards</title>
+  <title>Houston Market Analysis</title>
   <style>
     body {
       margin: 0;
@@ -42,24 +42,34 @@
   </style>
 </head>
 <body>
-  <h1>Power BI Dashboards</h1>
+  <h1>Houston Market Analysis</h1>
   <div class="container">
 
     <div class="dashboard">
       <h3>Dashboard 1</h3>
-      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=6249e1dc04506371a29e" allowFullScreen></iframe>
+      <iframe id="frame1" allowFullScreen></iframe>
     </div>
 
     <div class="dashboard">
       <h3>Dashboard 2</h3>
-      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=6b6e6d3afee49acff7a8" allowFullScreen></iframe>
+      <iframe id="frame2" allowFullScreen></iframe>
     </div>
 
     <div class="dashboard">
       <h3>Dashboard 3</h3>
-      <iframe src="https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=44d1290b4bc859ddd77d" allowFullScreen></iframe>
+      <iframe id="frame3" allowFullScreen></iframe>
     </div>
 
   </div>
+
+  <script>
+    // Cache-busting: adds a timestamp to the URL so the browser always loads the latest version
+    const timestamp = new Date().getTime();
+
+    document.getElementById('frame1').src = "https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=6249e1dc04506371a29e&v=" + timestamp;
+    document.getElementById('frame2').src = "https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=6b6e6d3afee49acff7a8&v=" + timestamp;
+    document.getElementById('frame3').src = "https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=44d1290b4bc859ddd77d&v=" + timestamp;
+  </script>
+
 </body>
 </html>
