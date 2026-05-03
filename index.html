@@ -29,6 +29,21 @@
       font-weight: normal;
       margin-left: 12px;
     }
+    .toggle-btn {
+      position: absolute;
+      right: 0;
+      padding: 6px 14px;
+      background: #1a1a2e;
+      color: #c8a97e;
+      border: 1.5px solid #c8a97e;
+      border-radius: 4px;
+      font-size: 13px;
+      cursor: pointer;
+    }
+    .toggle-btn:hover {
+      background: #c8a97e;
+      color: #1a1a2e;
+    }
     .container {
       display: flex;
       gap: 8px;
@@ -51,12 +66,16 @@
       border-radius: 4px;
       background: white;
     }
+    .dashboard.hidden {
+      display: none;
+    }
   </style>
 </head>
 <body>
   <div class="header">
     <h1>Houston Real Estate Market Analysis</h1>
     <span class="author">By Emilio Doporto</span>
+    <button class="toggle-btn" id="toggleBtn" onclick="toggleIncome()">Show: Dashboard 4</button>
   </div>
   <div class="container">
 
@@ -75,13 +94,31 @@
       <iframe id="frame3" allowFullScreen></iframe>
     </div>
 
+    <div class="dashboard hidden" id="dash4">
+      <h3>Dashboard 4</h3>
+      <iframe id="frame4" allowFullScreen></iframe>
+    </div>
+
   </div>
 
   <script>
     const timestamp = new Date().getTime();
-    document.getElementById('frame1').src = "https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=6249e1dc04506371a29e&v=" + timestamp;
-    document.getElementById('frame2').src = "https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=6b6e6d3afee49acff7a8&v=" + timestamp;
-    document.getElementById('frame3').src = "https://app.powerbi.com/view?r=eyJrIjoiM2UyYjU5NGItMWNhOS00NWVlLTk3MDktNWI1NzBlNzJmY2QwIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=44d1290b4bc859ddd77d&v=" + timestamp;
+    const base = "https://app.powerbi.com/view?r=eyJrIjoiOTkwNWI1NjEtOTY5OS00MTY5LWFiZmQtZTY5MGVmNTk3YTQxIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9";
+
+    document.getElementById('frame1').src = base + "&pageName=9281ea3244cc8217e777&v=" + timestamp;
+    document.getElementById('frame2').src = base + "&pageName=d68dd286829a03b0324c&v=" + timestamp;
+    document.getElementById('frame3').src = base + "&pageName=2809b533e4deb78027d9&v=" + timestamp;
+    document.getElementById('frame4').src = base + "&pageName=59bfd5c1193450804950&v=" + timestamp;
+
+    let incomeVisible = false;
+
+    function toggleIncome() {
+      incomeVisible = !incomeVisible;
+      document.getElementById('dash4').classList.toggle('hidden', !incomeVisible);
+      document.getElementById('toggleBtn').textContent = incomeVisible
+        ? 'Hide: Dashboard 4'
+        : 'Show: Dashboard 4';
+    }
   </script>
 
 </body>
