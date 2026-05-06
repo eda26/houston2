@@ -1,3 +1,4 @@
+```html
 <!DOCTYPE html>
 <html>
 <head>
@@ -71,36 +72,13 @@
       color: #444;
     }
 
-    .iframe-wrapper {
-      position: relative;
-      width: 100%;
-      height: 88vh;
-    }
-
     iframe {
       width: 100%;
-      height: 100%;
+      height: 88vh;
       border: 1px solid #ccc;
       border-radius: 4px;
       background: white;
       display: block;
-    }
-
-    .page-badge {
-      position: absolute;
-      bottom: 8px;
-      left: 50%;
-      transform: translateX(-50%);
-      background: rgba(255,255,255,0.92);
-      border: 1px solid #bbb;
-      border-radius: 12px;
-      padding: 2px 10px;
-      font-size: 12px;
-      font-weight: bold;
-      color: #1a1a2e;
-      pointer-events: none;
-      white-space: nowrap;
-      z-index: 10;
     }
 
     .dashboard.hidden {
@@ -124,49 +102,37 @@
     <!-- Dashboard 1 -->
     <div class="dashboard">
       <h3>Dashboard 1</h3>
-      <div class="iframe-wrapper">
-        <iframe id="frame1"
-          src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=9281ea3244cc8217e777"
-          allowFullScreen>
-        </iframe>
-        <div class="page-badge" id="badge1"></div>
-      </div>
+      <iframe id="frame1"
+        src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=9281ea3244cc8217e777"
+        allowFullScreen>
+      </iframe>
     </div>
 
     <!-- Dashboard 2 -->
     <div class="dashboard">
       <h3>Dashboard 2</h3>
-      <div class="iframe-wrapper">
-        <iframe id="frame2"
-          src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=d68dd286829a03b0324c"
-          allowFullScreen>
-        </iframe>
-        <div class="page-badge" id="badge2"></div>
-      </div>
+      <iframe id="frame2"
+        src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=d68dd286829a03b0324c"
+        allowFullScreen>
+      </iframe>
     </div>
 
     <!-- Dashboard 3 -->
     <div class="dashboard">
       <h3>Dashboard 3</h3>
-      <div class="iframe-wrapper">
-        <iframe id="frame3"
-          src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=2809b533e4deb78027d9"
-          allowFullScreen>
-        </iframe>
-        <div class="page-badge" id="badge3"></div>
-      </div>
+      <iframe id="frame3"
+        src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=2809b533e4deb78027d9"
+        allowFullScreen>
+      </iframe>
     </div>
 
     <!-- Dashboard 4 -->
     <div class="dashboard hidden" id="dash4">
       <h3>Dashboard 4</h3>
-      <div class="iframe-wrapper">
-        <iframe id="frame4"
-          src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=59bfd5c1193450804950"
-          allowFullScreen>
-        </iframe>
-        <div class="page-badge" id="badge4"></div>
-      </div>
+      <iframe id="frame4"
+        src="https://app.powerbi.com/view?r=eyJrIjoiZjhlYTQ5NGEtMjVjZS00ZGU2LWI4NGUtMTc3YTkzN2U5ZDBkIiwidCI6IjM0MDhhYWRhLWRjMTYtNDAyMy05NDNmLWRkNzMzNWU2NzliNyIsImMiOjR9&pageName=59bfd5c1193450804950"
+        allowFullScreen>
+      </iframe>
     </div>
 
   </div>
@@ -174,38 +140,21 @@
   <script>
     let incomeVisible = false;
 
-    const dashboardIds = ['badge1', 'badge2', 'badge3', 'badge4'];
-    const dash4Id = 'dash4';
-
-    function updateBadges() {
-      const total = incomeVisible ? 4 : 3;
-
-      dashboardIds.forEach((badgeId, i) => {
-        const badge = document.getElementById(badgeId);
-        if (i === 3 && !incomeVisible) {
-          badge.textContent = '';
-          return;
-        }
-        badge.textContent = `${i + 1} of ${total}`;
-      });
-    }
-
     function toggleIncome() {
       incomeVisible = !incomeVisible;
 
       document
-        .getElementById(dash4Id)
+        .getElementById('dash4')
         .classList.toggle('hidden', !incomeVisible);
 
       document.getElementById('toggleBtn').textContent = incomeVisible
         ? 'Hide: Dashboard 4'
         : 'Show: Dashboard 4';
-
-      updateBadges();
     }
-
-    updateBadges();
   </script>
 
 </body>
 </html>
+```
+
+All "X of 4" badges and the `.iframe-wrapper` divs have been completely removed. The code is back to clean and simple.
