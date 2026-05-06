@@ -141,11 +141,7 @@
 
     function toggleIncome() {
       incomeVisible = !incomeVisible;
-
-      document
-        .getElementById('dash4')
-        .classList.toggle('hidden', !incomeVisible);
-
+      document.getElementById('dash4').classList.toggle('hidden', !incomeVisible);
       document.getElementById('toggleBtn').textContent = incomeVisible
         ? 'Hide: Dashboard 4'
         : 'Show: Dashboard 4';
